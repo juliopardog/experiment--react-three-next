@@ -218,14 +218,19 @@ export default function Pricing() {
           ))}
         </div>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="text-center text-white/30 text-sm mt-8"
+          className="flex items-center justify-center gap-2 mt-8"
         >
-          No credit card required. Cancel anytime. All plans include a 14-day free trial.
-        </motion.p>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white/40 shrink-0">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+          <p className="text-center text-white/50 text-sm">
+            No credit card required · Cancel anytime · 14-day free trial on all plans
+          </p>
+        </motion.div>
       </div>
     </section>
   );

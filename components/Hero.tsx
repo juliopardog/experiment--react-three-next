@@ -82,6 +82,19 @@ export default function Hero() {
           </a>
         </motion.div>
 
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="text-xs text-white/35 mt-4 flex items-center gap-3"
+        >
+          <span>No credit card required</span>
+          <span className="w-px h-3 bg-white/20" />
+          <span>14-day free trial</span>
+          <span className="w-px h-3 bg-white/20" />
+          <span>Cancel anytime</span>
+        </motion.p>
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
