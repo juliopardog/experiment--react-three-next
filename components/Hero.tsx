@@ -36,7 +36,7 @@ export default function Hero() {
           className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00D4FF]/30 bg-[#00D4FF]/5 text-xs text-[#00D4FF] font-medium mb-6"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-[#00D4FF] pulse-glow" />
-          Now in public beta — join 2,000+ teams
+          Public beta · 2,000+ teams running campaigns
         </motion.div>
 
         <motion.h1
@@ -45,9 +45,9 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.35 }}
           className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.02] tracking-tight mb-6 max-w-2xl"
         >
-          Outreach that{" "}
-          <span className="gradient-text">actually</span>{" "}
-          closes deals.
+          Stop writing{" "}
+          <span className="gradient-text">cold emails.</span>{" "}
+          Start booking meetings.
         </motion.h1>
 
         <motion.p
@@ -56,9 +56,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-lg sm:text-xl text-white/60 leading-relaxed mb-10 max-w-xl"
         >
-          NEXUS writes hyper-personalized emails and LinkedIn messages for every
-          prospect — at any scale. Set your campaign, let the AI run it, watch
-          replies land.
+          NEXUS researches each prospect and writes a message in your voice — email, LinkedIn, or both. Sequences run automatically. When someone replies, NEXUS pauses and hands them to you.
         </motion.p>
 
         <motion.div
@@ -71,7 +69,7 @@ export default function Hero() {
             href="#pricing"
             className="inline-flex items-center justify-center gap-2 bg-[#00D4FF] text-[#050508] font-bold text-base px-8 py-4 rounded-full hover:bg-[#00D4FF]/90 transition-all duration-200 glow-cyan"
           >
-            Start for free
+            Start my free trial
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
@@ -106,7 +104,7 @@ export default function Hero() {
             ))}
           </div>
           <p className="text-sm text-white/45">
-            <span className="text-white font-semibold">2,000+</span> sales teams trust NEXUS
+            <span className="text-white font-semibold">2,000+</span> sales teams already running campaigns
           </p>
         </motion.div>
       </div>

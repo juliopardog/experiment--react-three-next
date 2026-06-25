@@ -53,7 +53,7 @@ export default function Navbar() {
             href="#pricing"
             className="text-sm font-semibold bg-[#00D4FF] text-[#050508] px-5 py-2.5 rounded-full hover:bg-[#00D4FF]/90 transition-all duration-200 glow-cyan"
           >
-            Start Free
+            Start Free Trial
           </a>
         </div>
 
@@ -94,7 +94,7 @@ export default function Navbar() {
             className="text-sm font-semibold bg-[#00D4FF] text-[#050508] px-5 py-2.5 rounded-full text-center mt-2"
             onClick={() => setMobileOpen(false)}
           >
-            Start Free
+            Start Free Trial
           </a>
         </motion.div>
       )}

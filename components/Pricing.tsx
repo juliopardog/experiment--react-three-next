@@ -8,7 +8,7 @@ const plans = [
     name: "Starter",
     monthly: 49,
     annual: 39,
-    description: "Perfect for solo founders and early sales reps.",
+    description: "For solo founders and individual reps.",
     contacts: "500 contacts/mo",
     highlight: false,
     color: "#00D4FF",
@@ -24,7 +24,7 @@ const plans = [
     name: "Growth",
     monthly: 149,
     annual: 119,
-    description: "For growing teams serious about pipeline.",
+    description: "For teams scaling their outbound.",
     contacts: "5,000 contacts/mo",
     highlight: true,
     color: "#FF006E",
@@ -42,7 +42,7 @@ const plans = [
     name: "Scale",
     monthly: 399,
     annual: 319,
-    description: "Unlimited outreach for high-velocity teams.",
+    description: "For high-volume teams that need everything.",
     contacts: "Unlimited contacts",
     highlight: false,
     color: "#7B2FFF",
@@ -89,8 +89,8 @@ export default function Pricing() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-4xl sm:text-5xl font-bold mb-6"
           >
-            Simple, transparent{" "}
-            <span className="gradient-text">pricing</span>
+            Pick a plan.{" "}
+            <span className="gradient-text">Start booking.</span>
           </motion.h2>
 
           {/* Toggle */}

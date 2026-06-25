@@ -9,29 +9,29 @@ const FeatureScene = dynamic(() => import("./three/FeatureScene"), { ssr: false 
 const features = [
   {
     number: "01",
-    title: "AI Personalization Engine",
+    title: "Every email written from scratch",
     description:
-      "NEXUS researches each prospect and writes messages that feel genuinely hand-crafted — referencing their LinkedIn activity, funding rounds, tech stack, and recent news. Every message is unique.",
-    bullets: ["3× higher reply rates vs. templates", "GPT-4 powered research layer", "Matches your tone & voice"],
+      "NEXUS reads each prospect's LinkedIn activity, funding history, tech stack, and recent news. It writes a message that references something real — so it reads like you spent 20 minutes on each one. You didn't.",
+    bullets: ["Deep research on every contact", "Writes in your voice, not a template voice", "Subject lines crafted per prospect"],
     type: "cube" as const,
     color: "#00D4FF",
     emissive: "#003366",
   },
   {
     number: "02",
-    title: "Multi-Channel Sequences",
+    title: "Email and LinkedIn in one sequence",
     description:
-      "Orchestrate email, LinkedIn DMs, and follow-ups in one unified workflow. Smart sequencing pauses a prospect the moment they reply — so you never send a follow-up to someone who's already interested.",
-    bullets: ["Email + LinkedIn in one workflow", "Auto-pause on reply detection", "A/B test every message"],
+      "Build a sequence that touches prospects on email and LinkedIn. When someone replies, NEXUS pulls them out of the queue and flags them for you. No more following up with leads who are already interested.",
+    bullets: ["Email + LinkedIn in one workflow", "Auto-pauses when they reply", "A/B test every message"],
     type: "sphere" as const,
     color: "#FF006E",
     emissive: "#660028",
   },
   {
     number: "03",
-    title: "Real-Time Analytics",
+    title: "Live data on every message",
     description:
-      "Live dashboards show open rates, reply rates, and booked meetings the moment they happen. NEXUS surfaces exactly which subject lines and message angles are winning so you can double down fast.",
+      "Your dashboard updates as emails open, replies come in, and meetings book. See which subject lines win, which opening lines get replies, and where prospects drop off. Cut what fails. Run more of what works.",
     bullets: ["Live open & reply tracking", "Message-level performance data", "Pipeline attribution reports"],
     type: "diamond" as const,
     color: "#7B2FFF",
@@ -150,8 +150,8 @@ export default function Features() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-4xl sm:text-5xl font-bold"
           >
-            Everything you need to{" "}
-            <span className="gradient-text">book more meetings</span>
+            Three tools that{" "}
+            <span className="gradient-text">fill your calendar</span>
           </motion.h2>
         </div>
       </div>

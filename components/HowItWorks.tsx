@@ -8,7 +8,7 @@ const steps = [
     number: "01",
     title: "Import your leads",
     description:
-      "Upload a CSV or connect your CRM. NEXUS enriches every contact with LinkedIn data, company info, recent news, and buying signals.",
+      "Upload a CSV or connect your CRM. NEXUS enriches each contact with LinkedIn data, company news, funding history, and tech stack — so it has real context to write something specific.",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
@@ -18,9 +18,9 @@ const steps = [
   },
   {
     number: "02",
-    title: "AI writes every message",
+    title: "NEXUS writes the messages",
     description:
-      "For each prospect, NEXUS generates a personalized opening line, tailored body, and subject line — in your voice. Review, tweak, or let it run.",
+      "For each prospect, NEXUS writes a subject line, opening line, and full message in your voice. Review and tweak what you want. Or set approval to auto and let it send.",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -30,9 +30,9 @@ const steps = [
   },
   {
     number: "03",
-    title: "Campaigns run on autopilot",
+    title: "Sequences run themselves",
     description:
-      "Sequences go out on your schedule. NEXUS tracks opens, clicks, and replies — then pauses prospects who respond so you can close them yourself.",
+      "Sequences go out on your schedule. When a prospect replies, NEXUS pulls them out of the queue and flags them for you. You focus on closing. The tool handles the rest.",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -75,7 +75,7 @@ export default function HowItWorks() {
             transition={{ duration: 0.5 }}
             className="text-[#FF006E] text-sm font-semibold tracking-widest uppercase mb-3"
           >
-            Simple by design
+            How it works
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -83,8 +83,8 @@ export default function HowItWorks() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-4xl sm:text-5xl font-bold"
           >
-            From zero to booked{" "}
-            <span className="gradient-text-alt">in three steps</span>
+            From first import{" "}
+            <span className="gradient-text-alt">to first reply in minutes</span>
           </motion.h2>
         </div>
 
@@ -160,7 +160,7 @@ export default function HowItWorks() {
             href="#pricing"
             className="inline-flex items-center gap-2 bg-[#00D4FF] text-[#050508] font-bold text-base px-10 py-4 rounded-full hover:bg-[#00D4FF]/90 transition-all duration-200 glow-cyan"
           >
-            Get started in minutes
+            Start my free trial
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
