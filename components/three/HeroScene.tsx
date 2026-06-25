@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef, useMemo } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Float, Sparkles, Environment, MeshDistortMaterial } from "@react-three/drei";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { Float, Sparkles } from "@react-three/drei";
 import * as THREE from "three";
 
 function MouseTracker({ children }: { children: React.ReactNode }) {
@@ -38,11 +38,10 @@ function MainOrb() {
         <torusKnotGeometry args={[1.8, 0.55, 256, 24, 2, 3]} />
         <meshStandardMaterial
           color="#00D4FF"
-          emissive="#003366"
-          emissiveIntensity={0.8}
-          metalness={1}
-          roughness={0.05}
-          envMapIntensity={2}
+          emissive="#00D4FF"
+          emissiveIntensity={1.2}
+          metalness={0.2}
+          roughness={0.25}
         />
       </mesh>
     </Float>
@@ -66,9 +65,9 @@ function OrbitingSphere({ angle, radius, color, size }: { angle: number; radius:
       <meshStandardMaterial
         color={color}
         emissive={color}
-        emissiveIntensity={0.4}
-        metalness={0.9}
-        roughness={0.1}
+        emissiveIntensity={2.0}
+        metalness={0.1}
+        roughness={0.2}
       />
     </mesh>
   );
@@ -124,11 +123,11 @@ export default function HeroScene() {
       dpr={[1, 2]}
       gl={{ antialias: true, alpha: true }}
     >
-      <Environment preset="city" />
-      <ambientLight intensity={0.1} />
-      <pointLight position={[5, 5, 5]} intensity={4} color="#00D4FF" />
-      <pointLight position={[-5, -3, 3]} intensity={3} color="#FF006E" />
-      <pointLight position={[0, 8, -2]} intensity={2} color="#7B2FFF" />
+      <ambientLight intensity={0.3} />
+      <pointLight position={[3, 3, 5]} intensity={8} color="#00D4FF" />
+      <pointLight position={[-3, -3, 5]} intensity={6} color="#FF006E" />
+      <pointLight position={[0, 5, 3]} intensity={4} color="#7B2FFF" />
+      <pointLight position={[1.5, 0, 3]} intensity={5} color="#00D4FF" />
 
       <MouseTracker>
         <MainOrb />
