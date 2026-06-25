@@ -60,7 +60,7 @@ function FeatureRow({ feature, index }: { feature: (typeof features)[0]; index: 
         <motion.div
           initial={{ opacity: 0, x: isEven ? -60 : 60 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.9, ease: "easeOut" }}
+          transition={{ duration: 0.65, ease: "easeOut" }}
           className="relative min-h-[380px] lg:min-h-[520px]"
           style={{
             background: `radial-gradient(ellipse at center, ${feature.color}12 0%, transparent 70%)`,
@@ -81,7 +81,7 @@ function FeatureRow({ feature, index }: { feature: (typeof features)[0]; index: 
         <motion.div
           initial={{ opacity: 0, x: isEven ? 60 : -60 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.9, ease: "easeOut", delay: 0.1 }}
+          transition={{ duration: 0.65, ease: "easeOut", delay: 0.1 }}
           className="flex flex-col justify-center px-10 py-16 lg:px-16"
         >
           <div
@@ -96,7 +96,7 @@ function FeatureRow({ feature, index }: { feature: (typeof features)[0]; index: 
             {feature.title}
           </h3>
 
-          <p className="text-white/50 text-base leading-relaxed mb-8">
+          <p className="text-white/65 text-base leading-relaxed mb-8">
             {feature.description}
           </p>
 
@@ -134,7 +134,7 @@ export default function Features() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-6" ref={headerRef}>
+      <div className="max-w-6xl mx-auto px-6" ref={headerRef}>
         <div className="text-center mb-20">
           <motion.p
             initial={{ opacity: 0, y: 20 }}

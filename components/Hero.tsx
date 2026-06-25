@@ -32,7 +32,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00D4FF]/30 bg-[#00D4FF]/5 text-xs text-[#00D4FF] font-medium mb-6"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-[#00D4FF] pulse-glow" />
@@ -42,7 +42,7 @@ export default function Hero() {
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.35 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
           className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.02] tracking-tight mb-6 max-w-2xl"
         >
           Outreach that{" "}
@@ -53,7 +53,7 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
           className="text-lg sm:text-xl text-white/60 leading-relaxed mb-10 max-w-xl"
         >
           NEXUS writes hyper-personalized emails and LinkedIn messages for every
@@ -64,7 +64,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.65 }}
+          transition={{ duration: 0.6, delay: 0.65 }}
           className="flex flex-col sm:flex-row gap-4"
         >
           <a
@@ -87,7 +87,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.9 }}
+          transition={{ duration: 0.6, delay: 0.9 }}
           className="mt-14 flex items-center gap-6"
         >
           <div className="flex -space-x-3">

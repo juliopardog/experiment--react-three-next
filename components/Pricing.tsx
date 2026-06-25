@@ -130,7 +130,7 @@ export default function Pricing() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.12 }}
               className={`relative rounded-2xl p-8 flex flex-col ${
-                plan.highlight ? "scale-[1.02]" : ""
+                plan.highlight ? "scale-[1.04]" : "mt-4"
               }`}
               style={{
                 background: plan.highlight
@@ -156,7 +156,7 @@ export default function Pricing() {
                   {plan.contacts}
                 </p>
                 <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                <p className="text-white/45 text-sm">{plan.description}</p>
+                <p className="text-white/60 text-sm">{plan.description}</p>
               </div>
 
               <div className="mb-8">

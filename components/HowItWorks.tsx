@@ -140,7 +140,7 @@ export default function HowItWorks() {
                   </div>
 
                   <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-                  <p className="text-white/50 text-sm leading-relaxed max-w-xs">
+                  <p className="text-white/65 text-sm leading-relaxed max-w-xs">
                     {step.description}
                   </p>
                 </motion.div>
@@ -158,8 +158,7 @@ export default function HowItWorks() {
         >
           <a
             href="#pricing"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-[#00D4FF] via-[#FF006E] to-[#7B2FFF] text-white font-bold text-base px-10 py-4 rounded-full hover:opacity-90 transition-opacity"
-            style={{ boxShadow: "0 0 40px rgba(0,212,255,0.2), 0 0 80px rgba(255,0,110,0.1)" }}
+            className="inline-flex items-center gap-2 bg-[#00D4FF] text-[#050508] font-bold text-base px-10 py-4 rounded-full hover:bg-[#00D4FF]/90 transition-all duration-200 glow-cyan"
           >
             Get started in minutes
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">

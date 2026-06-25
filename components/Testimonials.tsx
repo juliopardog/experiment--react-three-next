@@ -68,7 +68,7 @@ export default function Testimonials() {
           className="text-center mb-16"
         >
           <p className="text-white/25 text-xs font-semibold tracking-widest uppercase mb-8">
-            Trusted by teams at
+            Built for teams like these
           </p>
           <div className="flex flex-wrap items-center justify-center gap-8">
             {logos.map((logo) => (
@@ -94,8 +94,8 @@ export default function Testimonials() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-4xl sm:text-5xl font-bold"
           >
-            Real teams.{" "}
-            <span className="gradient-text">Real results.</span>
+            What teams are{" "}
+            <span className="gradient-text">saying about NEXUS</span>
           </motion.h2>
         </div>
 
