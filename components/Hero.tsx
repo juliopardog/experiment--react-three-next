@@ -28,7 +28,7 @@ export default function Hero() {
       />
 
       {/* Text — overlaid on top of the 3D */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 w-full py-28">
+      <div className="relative z-10 w-full px-8 sm:px-14 lg:px-20 xl:px-28 py-28">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
