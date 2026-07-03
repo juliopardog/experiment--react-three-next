@@ -3,57 +3,66 @@
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
+/* Annual = 2 months free (pay 10, get 12). UI names map to API plans:
+   Starter = "pro", Growth = "growth". */
 const plans = [
   {
-    name: "Starter",
-    monthly: 49,
-    annual: 39,
-    description: "For solo founders and individual reps.",
-    contacts: "500 contacts/mo",
+    name: "Free",
+    monthly: 0,
+    annual: 0,
+    annualTotal: 0,
+    description: "Try the whole flow, on us.",
+    contacts: "25 found leads/mo",
     highlight: false,
     color: "#00D4FF",
+    signupHref: "/signup",
+    cta: "Start free",
     features: [
-      "500 enriched contacts/month",
-      "AI personalization (email only)",
-      "Basic analytics dashboard",
-      "Gmail & Outlook integration",
-      "Email support",
+      "50 emails/month",
+      "25 found leads/month",
+      "AI-written emails, one per lead",
+      "Approve-before-send queue",
+      "Automatic follow-ups",
+    ],
+  },
+  {
+    name: "Starter",
+    monthly: 19,
+    annual: 16,
+    annualTotal: 190,
+    description: "For getting real replies every week.",
+    contacts: "250 found leads/mo",
+    highlight: true,
+    color: "#FF006E",
+    signupHref: "/signup?plan=pro",
+    cta: "Start with Starter",
+    features: [
+      "1,000 emails/month",
+      "250 found leads/month",
+      "Send from your own domain",
+      "AI-written emails, one per lead",
+      "Automatic follow-ups",
+      "Live opens & replies dashboard",
     ],
   },
   {
     name: "Growth",
-    monthly: 149,
-    annual: 119,
-    description: "For teams scaling their outbound.",
-    contacts: "5,000 contacts/mo",
-    highlight: true,
-    color: "#FF006E",
-    features: [
-      "5,000 enriched contacts/month",
-      "AI personalization (email + LinkedIn)",
-      "Multi-step sequences",
-      "A/B testing for subject lines",
-      "CRM sync (HubSpot, Salesforce)",
-      "Real-time analytics & heatmaps",
-      "Priority support",
-    ],
-  },
-  {
-    name: "Scale",
-    monthly: 399,
-    annual: 319,
-    description: "For high-volume teams that need everything.",
-    contacts: "Unlimited contacts",
+    monthly: 49,
+    annual: 41,
+    annualTotal: 490,
+    description: "For running outreach at volume.",
+    contacts: "1,000 found leads/mo",
     highlight: false,
     color: "#7B2FFF",
+    signupHref: "/signup?plan=growth",
+    cta: "Start with Growth",
     features: [
-      "Unlimited enriched contacts",
-      "All channels + SMS",
-      "Custom AI fine-tuning",
-      "Dedicated account manager",
-      "SOC 2 compliance",
-      "Custom integrations",
-      "SLA & 24/7 support",
+      "5,000 emails/month",
+      "1,000 found leads/month",
+      "Send from your own domain",
+      "AI-written emails, one per lead",
+      "Automatic follow-ups",
+      "Priority support",
     ],
   },
 ];
@@ -116,7 +125,7 @@ export default function Pricing() {
             >
               Annual
               <span className="text-xs bg-[#00D4FF] text-[#050508] font-bold px-2 py-0.5 rounded-full">
-                -20%
+                2 months free
               </span>
             </button>
           </motion.div>
@@ -166,9 +175,9 @@ export default function Pricing() {
                   </span>
                   <span className="text-white/40 text-sm mb-2">/month</span>
                 </div>
-                {annual && (
+                {annual && plan.annualTotal > 0 && (
                   <p className="text-xs text-white/35 mt-1">
-                    Billed annually (${(annual ? plan.annual : plan.monthly) * 12}/yr)
+                    Billed annually (${plan.annualTotal}/yr)
                   </p>
                 )}
               </div>
@@ -194,7 +203,7 @@ export default function Pricing() {
               </ul>
 
               <a
-                href="#"
+                href={plan.signupHref}
                 className={`w-full text-center font-bold py-3.5 rounded-xl text-sm transition-all duration-200 ${
                   plan.highlight
                     ? "text-white hover:opacity-90"
@@ -212,7 +221,7 @@ export default function Pricing() {
                       }
                 }
               >
-                {plan.name === "Scale" ? "Contact Sales" : "Start free trial"}
+                {plan.cta}
               </a>
             </motion.div>
           ))}
@@ -228,7 +237,7 @@ export default function Pricing() {
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
           </svg>
           <p className="text-center text-white/50 text-sm">
-            No credit card required · Cancel anytime · 14-day free trial on all plans
+            Free plan needs no credit card · Upgrade or cancel anytime
           </p>
         </motion.div>
       </div>

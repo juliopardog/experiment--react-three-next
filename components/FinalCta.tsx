@@ -50,7 +50,8 @@ export default function FinalCta() {
           transition={{ duration: 0.5, delay: 0.15 }}
           className="text-white/55 text-lg leading-relaxed mb-10 max-w-xl mx-auto"
         >
-          Import your leads, let PolloLabs write the first batch of messages, and watch replies come in. No setup fees. No long onboarding. Just outbound that works.
+          Type a niche and a city, read the emails PolloLabs writes, and hit
+          approve. No setup fees. No long onboarding. Just outreach that works.
         </motion.p>
 
         <motion.div
@@ -60,10 +61,10 @@ export default function FinalCta() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a
-            href="#pricing"
+            href="/signup"
             className="inline-flex items-center gap-2 bg-[#00D4FF] text-[#050508] font-bold text-base px-10 py-4 rounded-full hover:bg-[#00D4FF]/90 transition-all duration-200 glow-cyan"
           >
-            Start my free trial
+            Start free
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
@@ -82,9 +83,9 @@ export default function FinalCta() {
           transition={{ duration: 0.5, delay: 0.32 }}
           className="text-xs text-white/30 mt-5 flex items-center justify-center gap-3"
         >
-          <span>No credit card required</span>
+          <span>Free plan</span>
           <span className="w-px h-3 bg-white/15" />
-          <span>14-day free trial</span>
+          <span>No credit card required</span>
           <span className="w-px h-3 bg-white/15" />
           <span>Cancel anytime</span>
         </motion.p>

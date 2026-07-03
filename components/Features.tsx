@@ -9,30 +9,30 @@ const FeatureScene = dynamic(() => import("./three/FeatureScene"), { ssr: false 
 const features = [
   {
     number: "01",
-    title: "Every email written from scratch",
+    title: "Leads, found for you",
     description:
-      "PolloLabs reads each prospect's LinkedIn activity, funding history, tech stack, and recent news. It writes a message that references something real — so it reads like you spent 20 minutes on each one. You didn't.",
-    bullets: ["Deep research on every contact", "Writes in your voice, not a template voice", "Subject lines crafted per prospect"],
+      "Type “dentists in Austin, TX” and PolloLabs searches Google and OpenStreetMap, crawls each business's website, and verifies their email addresses. Real local businesses with real inboxes — in about a minute.",
+    bullets: ["Search any niche + city", "Verified business emails", "CSV import and manual add too"],
     type: "cube" as const,
     color: "#00D4FF",
     emissive: "#003366",
   },
   {
     number: "02",
-    title: "Email and LinkedIn in one sequence",
+    title: "Every email written from scratch",
     description:
-      "Build a sequence that touches prospects on email and LinkedIn. When someone replies, PolloLabs pulls them out of the queue and flags them for you. No more following up with leads who are already interested.",
-    bullets: ["Email + LinkedIn in one workflow", "Auto-pauses when they reply", "A/B test every message"],
+      "Tell PolloLabs who you are and what you sell once. It writes one unique email per lead — referencing their business, in your voice. Nothing sends until you read it and hit approve.",
+    bullets: ["One unique email per lead", "You approve every send", "Edit subject and body before it goes"],
     type: "sphere" as const,
     color: "#FF006E",
     emissive: "#660028",
   },
   {
     number: "03",
-    title: "Live data on every message",
+    title: "Follow-ups that know when to stop",
     description:
-      "Your dashboard updates as emails open, replies come in, and meetings book. See which subject lines win, which opening lines get replies, and where prospects drop off. Cut what fails. Run more of what works.",
-    bullets: ["Live open & reply tracking", "Message-level performance data", "Pipeline attribution reports"],
+      "Automatic bumps go out on your schedule and cancel the moment someone replies. Opens and replies land on a live dashboard, so you always know which emails are working.",
+    bullets: ["Auto follow-ups, 0–5 per lead", "Stops instantly on reply", "Live opens and replies dashboard"],
     type: "diamond" as const,
     color: "#7B2FFF",
     emissive: "#330066",

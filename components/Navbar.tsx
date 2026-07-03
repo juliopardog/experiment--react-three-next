@@ -14,7 +14,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const links = ["Features", "How It Works", "Pricing", "Testimonials"];
+  const links = ["Features", "How It Works", "Pricing"];
 
   return (
     <motion.nav
@@ -46,16 +46,16 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="#"
+            href="/login"
             className="text-sm text-white/70 hover:text-white transition-colors px-4 py-2"
           >
             Log in
           </a>
           <a
-            href="#pricing"
+            href="/signup"
             className="text-sm font-semibold bg-[#00D4FF] text-[#050508] px-5 py-2.5 rounded-full hover:bg-[#00D4FF]/90 transition-all duration-200 glow-cyan"
           >
-            Start Free Trial
+            Start Free
           </a>
         </div>
 
@@ -92,11 +92,11 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#pricing"
+            href="/signup"
             className="text-sm font-semibold bg-[#00D4FF] text-[#050508] px-5 py-2.5 rounded-full text-center mt-2"
             onClick={() => setMobileOpen(false)}
           >
-            Start Free Trial
+            Start Free
           </a>
         </motion.div>
       )}

@@ -29,16 +29,6 @@ export default function Hero() {
 
       {/* Text — overlaid on top of the 3D */}
       <div className="relative z-10 w-full px-8 sm:px-14 lg:px-20 xl:px-28 py-28">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00D4FF]/30 bg-[#00D4FF]/5 text-xs text-[#00D4FF] font-medium mb-6"
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#00D4FF] pulse-glow" />
-          Public beta · 2,000+ teams running campaigns
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -56,7 +46,9 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-lg sm:text-xl text-white/60 leading-relaxed mb-10 max-w-xl"
         >
-          PolloLabs researches each prospect and writes a message in your voice — email, LinkedIn, or both. Sequences run automatically. When someone replies, PolloLabs pauses and hands them to you.
+          PolloLabs finds local businesses, writes each one a personal email in
+          your voice, sends from your domain, and follows up automatically —
+          until they reply.
         </motion.p>
 
         <motion.div
@@ -66,10 +58,10 @@ export default function Hero() {
           className="flex flex-col sm:flex-row gap-4"
         >
           <a
-            href="#pricing"
+            href="/signup"
             className="inline-flex items-center justify-center gap-2 bg-[#00D4FF] text-[#050508] font-bold text-base px-8 py-4 rounded-full hover:bg-[#00D4FF]/90 transition-all duration-200 glow-cyan"
           >
-            Start my free trial
+            Start free
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
@@ -88,38 +80,12 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="text-xs text-white/35 mt-4 flex items-center gap-3"
         >
-          <span>No credit card required</span>
+          <span>Free plan</span>
           <span className="w-px h-3 bg-white/20" />
-          <span>14-day free trial</span>
+          <span>No credit card required</span>
           <span className="w-px h-3 bg-white/20" />
           <span>Cancel anytime</span>
         </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.9 }}
-          className="mt-14 flex items-center gap-6"
-        >
-          <div className="flex -space-x-3">
-            {["A", "B", "C", "D"].map((l, i) => (
-              <div
-                key={i}
-                className="w-9 h-9 rounded-full border-2 flex items-center justify-center text-xs font-bold"
-                style={{
-                  background: ["#00D4FF", "#FF006E", "#7B2FFF", "#00D4FF"][i] + "25",
-                  borderColor: ["#00D4FF", "#FF006E", "#7B2FFF", "#00D4FF"][i],
-                  color: ["#00D4FF", "#FF006E", "#7B2FFF", "#00D4FF"][i],
-                }}
-              >
-                {l}
-              </div>
-            ))}
-          </div>
-          <p className="text-sm text-white/45">
-            <span className="text-white font-semibold">2,000+</span> sales teams already running campaigns
-          </p>
-        </motion.div>
       </div>
 
       {/* Scroll indicator */}
