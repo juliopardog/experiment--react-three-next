@@ -15,6 +15,9 @@ export default function Footer() {
             <p className="text-white/35 text-sm max-w-xs">
               AI-powered outreach automation for modern sales teams.
             </p>
+            <p className="text-white/25 text-xs mt-2">
+              PolloLabs is a product of Pardo Digital LLC.
+            </p>
           </div>
 
           <div className="flex flex-wrap gap-8 text-sm text-white/40">
@@ -26,7 +29,7 @@ export default function Footer() {
 
         <div className="mt-10 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/25">
-            © {new Date().getFullYear()} PolloLabs Inc. All rights reserved.
+            © {new Date().getFullYear()} Pardo Digital LLC. All rights reserved.
           </p>
           <div className="flex gap-4">
             {["Twitter", "LinkedIn", "GitHub"].map((s) => (

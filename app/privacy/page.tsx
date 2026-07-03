@@ -16,7 +16,7 @@ export default function PrivacyPage() {
 
       <h2>1. Who This Policy Covers</h2>
       <p>
-        This Privacy Policy explains how <strong>[COMPANY NAME]</strong>{" "}
+        This Privacy Policy explains how <strong>Pardo Digital LLC</strong>{" "}
         (&ldquo;PolloLabs,&rdquo; &ldquo;we&rdquo;) collects, uses, and shares information through the
         PolloLabs website and application (the &ldquo;Service&rdquo;). It covers two kinds
         of personal data: (a) data about you, our customer, and (b) data about

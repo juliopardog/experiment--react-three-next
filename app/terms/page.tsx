@@ -18,7 +18,7 @@ export default function TermsPage() {
       <h2>1. Agreement to Terms</h2>
       <p>
         These Terms of Service (&ldquo;Terms&rdquo;) are a binding agreement between you
-        (&ldquo;you&rdquo; or &ldquo;Customer&rdquo;) and <strong>[COMPANY NAME]</strong>{" "}
+        (&ldquo;you&rdquo; or &ldquo;Customer&rdquo;) and <strong>Pardo Digital LLC</strong>{" "}
         (&ldquo;PolloLabs,&rdquo; &ldquo;we,&rdquo; &ldquo;us&rdquo;), governing your access to and use of the PolloLabs
         website, application, and API (together, the &ldquo;Service&rdquo;). By creating
         an account or using the Service, you agree to these Terms. If you are
