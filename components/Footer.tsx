@@ -1,12 +1,17 @@
 "use client";
 
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="border-t border-white/5 py-12 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div>
-            <p className="text-xl font-bold gradient-text mb-2">PolloLabs</p>
+            <div className="flex items-center gap-2 mb-2">
+              <Image src="/logo-icon.png" alt="PolloLabs" width={26} height={26} />
+              <p className="text-xl font-bold gradient-text">PolloLabs</p>
+            </div>
             <p className="text-white/35 text-sm max-w-xs">
               AI-powered outreach automation for modern sales teams.
             </p>

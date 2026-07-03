@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function Navbar() {
@@ -25,8 +26,9 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between">
-        <a href="#" className="text-xl font-bold tracking-tight">
-          <span className="gradient-text">PolloLabs</span>
+        <a href="#" className="flex items-center gap-2.5">
+          <Image src="/logo-icon.png" alt="PolloLabs" width={30} height={30} priority />
+          <span className="text-xl font-bold tracking-tight gradient-text">PolloLabs</span>
         </a>
 
         <ul className="hidden md:flex items-center gap-8">
