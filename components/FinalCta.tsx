@@ -50,7 +50,7 @@ export default function FinalCta() {
           transition={{ duration: 0.5, delay: 0.15 }}
           className="text-white/55 text-lg leading-relaxed mb-10 max-w-xl mx-auto"
         >
-          Import your leads, let NEXUS write the first batch of messages, and watch replies come in. No setup fees. No long onboarding. Just outbound that works.
+          Import your leads, let PolloLabs write the first batch of messages, and watch replies come in. No setup fees. No long onboarding. Just outbound that works.
         </motion.p>
 
         <motion.div

@@ -56,7 +56,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-lg sm:text-xl text-white/60 leading-relaxed mb-10 max-w-xl"
         >
-          NEXUS researches each prospect and writes a message in your voice — email, LinkedIn, or both. Sequences run automatically. When someone replies, NEXUS pauses and hands them to you.
+          PolloLabs researches each prospect and writes a message in your voice — email, LinkedIn, or both. Sequences run automatically. When someone replies, PolloLabs pauses and hands them to you.
         </motion.p>
 
         <motion.div

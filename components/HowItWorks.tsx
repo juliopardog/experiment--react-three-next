@@ -8,7 +8,7 @@ const steps = [
     number: "01",
     title: "Import your leads",
     description:
-      "Upload a CSV or connect your CRM. NEXUS enriches each contact with LinkedIn data, company news, funding history, and tech stack — so it has real context to write something specific.",
+      "Upload a CSV or connect your CRM. PolloLabs enriches each contact with LinkedIn data, company news, funding history, and tech stack — so it has real context to write something specific.",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
@@ -18,9 +18,9 @@ const steps = [
   },
   {
     number: "02",
-    title: "NEXUS writes the messages",
+    title: "PolloLabs writes the messages",
     description:
-      "For each prospect, NEXUS writes a subject line, opening line, and full message in your voice. Review and tweak what you want. Or set approval to auto and let it send.",
+      "For each prospect, PolloLabs writes a subject line, opening line, and full message in your voice. Review and tweak what you want. Or set approval to auto and let it send.",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -32,7 +32,7 @@ const steps = [
     number: "03",
     title: "Sequences run themselves",
     description:
-      "Sequences go out on your schedule. When a prospect replies, NEXUS pulls them out of the queue and flags them for you. You focus on closing. The tool handles the rest.",
+      "Sequences go out on your schedule. When a prospect replies, PolloLabs pulls them out of the queue and flags them for you. You focus on closing. The tool handles the rest.",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M13 10V3L4 14h7v7l9-11h-7z" />

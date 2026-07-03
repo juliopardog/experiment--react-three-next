@@ -6,7 +6,7 @@ import { motion, useInView } from "framer-motion";
 const testimonials = [
   {
     quote:
-      "NEXUS replaced our entire SDR team's manual prospecting work. We went from 20 meetings a month to 80 — with a smaller team. The AI-written opening lines get replies I could never write myself.",
+      "PolloLabs replaced our entire SDR team's manual prospecting work. We went from 20 meetings a month to 80 — with a smaller team. The AI-written opening lines get replies I could never write myself.",
     name: "Marcus Delgado",
     role: "Head of Sales",
     company: "Forza Analytics",
@@ -16,7 +16,7 @@ const testimonials = [
   },
   {
     quote:
-      "I was skeptical about AI-written messages feeling generic. But NEXUS actually reads the prospect's LinkedIn posts and references them. Our reply rate jumped from 4% to 19% in the first two weeks.",
+      "I was skeptical about AI-written messages feeling generic. But PolloLabs actually reads the prospect's LinkedIn posts and references them. Our reply rate jumped from 4% to 19% in the first two weeks.",
     name: "Sarah Kim",
     role: "Founder & CEO",
     company: "Pullr",
@@ -26,7 +26,7 @@ const testimonials = [
   },
   {
     quote:
-      "We're a 5-person startup and NEXUS lets us punch above our weight. The multi-channel sequences feel like we have a full outbound team, but it's just one tool running on autopilot.",
+      "We're a 5-person startup and PolloLabs lets us punch above our weight. The multi-channel sequences feel like we have a full outbound team, but it's just one tool running on autopilot.",
     name: "James Okafor",
     role: "Co-founder",
     company: "StackFlow",
@@ -95,7 +95,7 @@ export default function Testimonials() {
             className="text-4xl sm:text-5xl font-bold"
           >
             What teams are{" "}
-            <span className="gradient-text">saying about NEXUS</span>
+            <span className="gradient-text">saying about PolloLabs</span>
           </motion.h2>
         </div>
 

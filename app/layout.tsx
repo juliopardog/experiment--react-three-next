@@ -9,7 +9,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "NEXUS — AI Outreach That Closes Deals",
+  title: "PolloLabs — AI Outreach That Closes Deals",
   description: "Hyper-personalized outreach at scale. Let AI write, send, and optimize every message while you focus on closing.",
 };
 

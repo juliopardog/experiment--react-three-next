@@ -11,7 +11,7 @@ const features = [
     number: "01",
     title: "Every email written from scratch",
     description:
-      "NEXUS reads each prospect's LinkedIn activity, funding history, tech stack, and recent news. It writes a message that references something real — so it reads like you spent 20 minutes on each one. You didn't.",
+      "PolloLabs reads each prospect's LinkedIn activity, funding history, tech stack, and recent news. It writes a message that references something real — so it reads like you spent 20 minutes on each one. You didn't.",
     bullets: ["Deep research on every contact", "Writes in your voice, not a template voice", "Subject lines crafted per prospect"],
     type: "cube" as const,
     color: "#00D4FF",
@@ -21,7 +21,7 @@ const features = [
     number: "02",
     title: "Email and LinkedIn in one sequence",
     description:
-      "Build a sequence that touches prospects on email and LinkedIn. When someone replies, NEXUS pulls them out of the queue and flags them for you. No more following up with leads who are already interested.",
+      "Build a sequence that touches prospects on email and LinkedIn. When someone replies, PolloLabs pulls them out of the queue and flags them for you. No more following up with leads who are already interested.",
     bullets: ["Email + LinkedIn in one workflow", "Auto-pauses when they reply", "A/B test every message"],
     type: "sphere" as const,
     color: "#FF006E",
@@ -142,7 +142,7 @@ export default function Features() {
             transition={{ duration: 0.5 }}
             className="text-[#00D4FF] text-sm font-semibold tracking-widest uppercase mb-3"
           >
-            Why NEXUS
+            Why PolloLabs
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}

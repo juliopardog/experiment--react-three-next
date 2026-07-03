@@ -26,7 +26,7 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         <a href="#" className="text-xl font-bold tracking-tight">
-          <span className="gradient-text">NEXUS</span>
+          <span className="gradient-text">PolloLabs</span>
         </a>
 
         <ul className="hidden md:flex items-center gap-8">
