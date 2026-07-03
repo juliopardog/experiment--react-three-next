@@ -18,11 +18,9 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-wrap gap-8 text-sm text-white/40">
-            {["Privacy", "Terms", "Security", "Blog", "Docs"].map((link) => (
-              <a key={link} href="#" className="hover:text-white transition-colors">
-                {link}
-              </a>
-            ))}
+            <a href="/terms" className="hover:text-white transition-colors">Terms</a>
+            <a href="/privacy" className="hover:text-white transition-colors">Privacy</a>
+            <a href="/acceptable-use" className="hover:text-white transition-colors">Acceptable Use</a>
           </div>
         </div>
 

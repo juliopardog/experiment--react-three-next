@@ -19,6 +19,7 @@ function SignupForm() {
   const [password, setPassword] = useState("");
   const [fullName, setFullName] = useState("");
   const [orgName, setOrgName] = useState("");
+  const [agreed, setAgreed] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -27,6 +28,10 @@ function SignupForm() {
     setError(null);
     if (password.length < 8) {
       setError("Password must be at least 8 characters.");
+      return;
+    }
+    if (!agreed) {
+      setError("Please agree to the Terms, Privacy Policy, and Acceptable Use Policy to continue.");
       return;
     }
     setLoading(true);
@@ -103,8 +108,31 @@ function SignupForm() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <label className="flex items-start gap-2.5 text-xs text-white/45 leading-relaxed">
+          <input
+            type="checkbox"
+            checked={agreed}
+            onChange={(e) => setAgreed(e.target.checked)}
+            className="mt-0.5 accent-[#00D4FF]"
+          />
+          <span>
+            I agree to the{" "}
+            <Link href="/terms" target="_blank" className="text-[#00D4FF] hover:underline">
+              Terms of Service
+            </Link>
+            ,{" "}
+            <Link href="/privacy" target="_blank" className="text-[#00D4FF] hover:underline">
+              Privacy Policy
+            </Link>
+            , and{" "}
+            <Link href="/acceptable-use" target="_blank" className="text-[#00D4FF] hover:underline">
+              Acceptable Use Policy
+            </Link>
+            , including my responsibility for every email I send.
+          </span>
+        </label>
         <ErrorNote message={error} />
-        <Button type="submit" loading={loading} className="w-full py-3">
+        <Button type="submit" loading={loading} disabled={!agreed} className="w-full py-3">
           Create account
         </Button>
       </form>
