@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { api, errorMessage, setToken } from "@/lib/api";
+import { api, errorMessage, normalizeEmail, setToken } from "@/lib/api";
 import { Campaign, TokenResponse } from "@/lib/types";
 import { Button, Card, ErrorNote, Input } from "@/components/app/ui";
 
@@ -21,7 +21,7 @@ export default function LoginPage() {
     setLoading(true);
     try {
       const token = await api<TokenResponse>("/auth/token", {
-        form: { username: email, password },
+        form: { username: normalizeEmail(email), password },
         noAuth: true,
       });
       setToken(token.access_token);
@@ -53,14 +53,22 @@ export default function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <Input
-              label="Password"
-              type="password"
-              autoComplete="current-password"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <div>
+              <Input
+                label="Password"
+                type="password"
+                autoComplete="current-password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <Link
+                href="/forgot-password"
+                className="text-xs text-white/40 hover:text-white transition-colors mt-1.5 inline-block"
+              >
+                Forgot password?
+              </Link>
+            </div>
             <ErrorNote message={error} />
             <Button type="submit" loading={loading} className="w-full py-3">
               Log in

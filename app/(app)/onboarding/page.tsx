@@ -1,10 +1,28 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { Suspense, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { api, errorMessage } from "@/lib/api";
 import { Campaign } from "@/lib/types";
 import { Button, Card, ErrorNote, Input, Textarea } from "@/components/app/ui";
+
+function WelcomeNotice() {
+  const welcome = useSearchParams().get("welcome") === "1";
+  const [dismissed, setDismissed] = useState(false);
+  if (!welcome || dismissed) return null;
+  return (
+    <div className="flex items-start justify-between gap-4 text-sm text-[#22c55e] bg-[#22c55e]/10 border border-[#22c55e]/20 rounded-xl px-4 py-3 mb-6">
+      <span>Account created — check your email to verify your address.</span>
+      <button
+        onClick={() => setDismissed(true)}
+        className="text-[#22c55e]/60 hover:text-[#22c55e] shrink-0"
+        aria-label="Dismiss"
+      >
+        ✕
+      </button>
+    </div>
+  );
+}
 
 export default function OnboardingPage() {
   const router = useRouter();
@@ -30,6 +48,10 @@ export default function OnboardingPage() {
 
   return (
     <div className="max-w-xl mx-auto pt-8">
+      <Suspense fallback={null}>
+        <WelcomeNotice />
+      </Suspense>
+
       <h1 className="text-3xl font-bold mb-2">Create your campaign</h1>
       <p className="text-white/50 text-sm mb-8 leading-relaxed">
         A campaign groups your leads, emails, and follow-ups around one offer.

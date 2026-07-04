@@ -4,7 +4,7 @@ import { Suspense, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { api, errorMessage, setToken } from "@/lib/api";
+import { api, errorMessage, normalizeEmail, setToken } from "@/lib/api";
 import { TokenResponse } from "@/lib/types";
 import { Button, Card, ErrorNote, Input } from "@/components/app/ui";
 
@@ -36,12 +36,13 @@ function SignupForm() {
     }
     setLoading(true);
     try {
+      const normalizedEmail = normalizeEmail(email);
       await api("/auth/register", {
-        json: { email, password, full_name: fullName, org_name: orgName },
+        json: { email: normalizedEmail, password, full_name: fullName, org_name: orgName },
         noAuth: true,
       });
       const token = await api<TokenResponse>("/auth/token", {
-        form: { username: email, password },
+        form: { username: normalizedEmail, password },
         noAuth: true,
       });
       setToken(token.access_token);
@@ -52,8 +53,8 @@ function SignupForm() {
           const { checkout_url } = await api<{ checkout_url: string }>("/billing/checkout", {
             json: {
               plan: planParam,
-              success_url: `${window.location.origin}/onboarding`,
-              cancel_url: `${window.location.origin}/onboarding`,
+              success_url: `${window.location.origin}/onboarding?welcome=1`,
+              cancel_url: `${window.location.origin}/onboarding?welcome=1`,
             },
           });
           window.location.href = checkout_url;
@@ -62,7 +63,7 @@ function SignupForm() {
           // checkout hiccup shouldn't block a fresh signup — they can upgrade later
         }
       }
-      router.replace("/onboarding");
+      router.replace("/onboarding?welcome=1");
     } catch (err) {
       setError(errorMessage(err));
       setLoading(false);

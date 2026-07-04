@@ -23,7 +23,8 @@ interface DraftEdits {
 }
 
 export default function DraftsTab({ campaignId }: { campaignId: string }) {
-  const { refreshOrg } = useOrg();
+  const { refreshOrg, user } = useOrg();
+  const canSend = user?.email_verified !== false;
   const [drafts, setDrafts] = useState<Draft[] | null>(null);
   const [statusFilter, setStatusFilter] = useState<DraftStatus>("pending_review");
   const [edits, setEdits] = useState<Record<string, DraftEdits>>({});
@@ -130,6 +131,11 @@ export default function DraftsTab({ campaignId }: { campaignId: string }) {
     await api(`/campaigns/${campaignId}/drafts/${d.id}/send`, { method: "POST" });
   };
 
+  const isUnverifiedEmailError = (err: unknown) =>
+    err instanceof ApiError &&
+    err.status === 403 &&
+    err.message.toLowerCase().includes("verify your email");
+
   const runAction = async (d: Draft, action: "approve" | "reject" | "send" | "approve_send") => {
     setError(null);
     setNotes((n) => ({ ...n, [d.id]: "" }));
@@ -151,6 +157,9 @@ export default function DraftsTab({ campaignId }: { campaignId: string }) {
     } catch (err) {
       if (err instanceof ApiError && err.status === 402) {
         // upgrade modal opens via the global quota event
+      } else if (isUnverifiedEmailError(err)) {
+        // verification banner opens/scrolls into view via the global event
+        setNotes((n) => ({ ...n, [d.id]: "Verify your email above to send." }));
       } else if (err instanceof ApiError && err.status === 409) {
         setNotes((n) => ({ ...n, [d.id]: err.message }));
       } else {
@@ -181,6 +190,12 @@ export default function DraftsTab({ campaignId }: { campaignId: string }) {
           if (err instanceof ApiError && err.status === 402) {
             setBulkProgress(
               `Sent ${sent}. Stopped — monthly quota reached (${pending.length - i - 1} left).`
+            );
+            return;
+          }
+          if (isUnverifiedEmailError(err)) {
+            setBulkProgress(
+              `Sent ${sent}. Stopped — verify your email to keep sending (${pending.length - i - 1} left).`
             );
             return;
           }
@@ -221,9 +236,16 @@ export default function DraftsTab({ campaignId }: { campaignId: string }) {
               {generating ? "Writing…" : "Generate drafts"}
             </Button>
             {pendingCount > 1 && (
-              <Button variant="secondary" onClick={bulkApproveSend} loading={bulkBusy}>
-                Approve &amp; send all ({pendingCount})
-              </Button>
+              <span title={canSend ? undefined : "Verify your email to send"}>
+                <Button
+                  variant="secondary"
+                  onClick={bulkApproveSend}
+                  loading={bulkBusy}
+                  disabled={!canSend}
+                >
+                  Approve &amp; send all ({pendingCount})
+                </Button>
+              </span>
             )}
           </div>
         </div>
@@ -315,9 +337,15 @@ export default function DraftsTab({ campaignId }: { campaignId: string }) {
               <div className="flex flex-wrap gap-2">
                 {editable && (
                   <>
-                    <Button loading={busy[d.id]} onClick={() => runAction(d, "approve_send")}>
-                      Approve &amp; send
-                    </Button>
+                    <span title={canSend ? undefined : "Verify your email to send"}>
+                      <Button
+                        loading={busy[d.id]}
+                        disabled={!canSend}
+                        onClick={() => runAction(d, "approve_send")}
+                      >
+                        Approve &amp; send
+                      </Button>
+                    </span>
                     <Button
                       variant="secondary"
                       loading={busy[d.id]}
@@ -335,9 +363,11 @@ export default function DraftsTab({ campaignId }: { campaignId: string }) {
                   </>
                 )}
                 {d.status === "approved" && (
-                  <Button loading={busy[d.id]} onClick={() => runAction(d, "send")}>
-                    Send
-                  </Button>
+                  <span title={canSend ? undefined : "Verify your email to send"}>
+                    <Button loading={busy[d.id]} disabled={!canSend} onClick={() => runAction(d, "send")}>
+                      Send
+                    </Button>
+                  </span>
                 )}
               </div>
             </Card>

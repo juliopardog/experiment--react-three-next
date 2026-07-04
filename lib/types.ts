@@ -1,9 +1,12 @@
+export type UserRole = "owner" | "admin" | "member";
+
 export interface User {
   id: string;
   email: string;
   full_name: string;
-  role: string;
+  role: UserRole;
   organization_id: string;
+  email_verified: boolean;
 }
 
 export interface Organization {
@@ -109,4 +112,31 @@ export interface CampaignAnalytics {
 export interface TokenResponse {
   access_token: string;
   token_type: string;
+  expires_in: number;
+}
+
+export interface TeamSeats {
+  plan: string;
+  seat_limit: number;
+  seats_used: number;
+  seats_available: number;
+}
+
+export interface TeamMember {
+  id: string;
+  email: string;
+  full_name: string;
+  role: UserRole;
+  is_active: boolean;
+  email_verified: boolean;
+}
+
+export type InviteStatus = "pending" | "accepted" | "revoked" | "expired";
+
+export interface TeamInvite {
+  id: string;
+  email: string;
+  role: UserRole;
+  status: InviteStatus;
+  expires_at: string;
 }

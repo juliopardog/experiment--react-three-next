@@ -32,6 +32,14 @@ export function clearToken() {
 /** Fired when the API returns 402 (monthly quota exhausted). AppShell listens and opens the upgrade modal. */
 export const QUOTA_EVENT = "pollolabs:quota-exceeded";
 
+/** Fired when the API returns 403 because the account's email isn't verified yet. AppShell listens and surfaces the verification banner. */
+export const EMAIL_VERIFICATION_EVENT = "pollolabs:email-unverified";
+
+/** Emails are always lowercased before hitting the API. */
+export function normalizeEmail(email: string): string {
+  return email.trim().toLowerCase();
+}
+
 interface RequestOptions {
   method?: string;
   /** JSON body */
@@ -123,6 +131,13 @@ export async function api<T>(path: string, opts: RequestOptions = {}): Promise<T
       if (typeof window !== "undefined") {
         window.dispatchEvent(new CustomEvent(QUOTA_EVENT, { detail: message }));
       }
+    } else if (res.status === 403 && detail && detail.toLowerCase().includes("verify your email")) {
+      message = detail;
+      if (typeof window !== "undefined") {
+        window.dispatchEvent(new CustomEvent(EMAIL_VERIFICATION_EVENT, { detail: message }));
+      }
+    } else if (res.status === 429) {
+      message = detail || "Too many attempts — try again in a minute.";
     } else if (res.status === 404 && !detail) {
       message = "Not found.";
     }
