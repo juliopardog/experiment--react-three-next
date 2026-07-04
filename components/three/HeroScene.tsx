@@ -13,17 +13,17 @@ const INTRO = {
   assembleStart: 0.15,
   assembleDur: 1.5,
   assembleStagger: 0.25,
-  morphStart: 2.7,
+  morphStart: 3.2,
   morphDur: 1.7,
   morphStagger: 0.5,
-  orbFadeStart: 3.7,
+  orbFadeStart: 4.2,
   orbFadeDur: 1.0,
-  particleFadeStart: 4.2,
+  particleFadeStart: 4.7,
   particleFadeDur: 1.1,
-  end: 5.5,
+  end: 6.0,
 };
 
-const PARTICLE_COUNT = 3000;
+const PARTICLE_COUNT = 6500;
 const LOGO_CENTER_X = 1.5; // matches MainOrb position
 const LOGO_HEIGHT = 4.4;
 
@@ -34,7 +34,7 @@ interface LogoCloud {
 }
 
 /** Sample the opaque pixels of the logo PNG into a colored point cloud. */
-function sampleLogoPoints(url: string, grid = 110): Promise<LogoCloud> {
+function sampleLogoPoints(url: string, grid = 140): Promise<LogoCloud> {
   return new Promise((resolve, reject) => {
     const img = new Image();
     img.onload = () => {
@@ -222,7 +222,7 @@ function MorphIntro({ logo }: { logo: LogoCloud }) {
       </bufferGeometry>
       <pointsMaterial
         ref={matRef}
-        size={0.028}
+        size={0.03}
         vertexColors
         transparent
         sizeAttenuation
@@ -358,6 +358,70 @@ function FieldParticles() {
   );
 }
 
+/* Deep-background starfield. Emerges as the morph particles collapse into
+   the knot — reads as the leftover particles settling into far space, then
+   persists with a very slow drift. Static buffer + one rotation = cheap. */
+const STAR_REST_OPACITY = 0.6;
+
+function BackgroundStars({ intro, reducedMotion }: { intro: boolean; reducedMotion: boolean }) {
+  const count = 1100;
+  const ref = useRef<THREE.Points>(null);
+  const matRef = useRef<THREE.PointsMaterial>(null);
+
+  const { positions, colors } = useMemo(() => {
+    const pos = new Float32Array(count * 3);
+    const col = new Float32Array(count * 3);
+    const tints = [
+      [1, 1, 1],
+      [1, 1, 1],
+      [0.6, 0.85, 1], // faint cyan
+      [1, 0.55, 0.8], // faint magenta
+      [0.7, 0.55, 1], // faint purple
+    ];
+    for (let i = 0; i < count; i++) {
+      pos[i * 3] = (Math.random() - 0.5) * 34;
+      pos[i * 3 + 1] = (Math.random() - 0.5) * 24;
+      pos[i * 3 + 2] = -8 - Math.random() * 12; // well behind the knot
+      const t = tints[Math.floor(Math.random() * tints.length)];
+      const b = 0.5 + Math.random() * 0.5;
+      col[i * 3] = t[0] * b;
+      col[i * 3 + 1] = t[1] * b;
+      col[i * 3 + 2] = t[2] * b;
+    }
+    return { positions: pos, colors: col };
+  }, []);
+
+  useFrame((state) => {
+    if (!ref.current || !matRef.current) return;
+    const t = state.clock.elapsedTime;
+    if (!reducedMotion) ref.current.rotation.y = t * 0.006;
+    // Fade in over the morph's exit window, then hold.
+    matRef.current.opacity = intro
+      ? clamp01((t - INTRO.particleFadeStart) / (INTRO.end - INTRO.particleFadeStart)) *
+        STAR_REST_OPACITY
+      : STAR_REST_OPACITY;
+  });
+
+  return (
+    <points ref={ref}>
+      <bufferGeometry>
+        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
+        <bufferAttribute attach="attributes-color" args={[colors, 3]} />
+      </bufferGeometry>
+      <pointsMaterial
+        ref={matRef}
+        size={0.05}
+        vertexColors
+        transparent
+        opacity={intro ? 0 : STAR_REST_OPACITY}
+        sizeAttenuation
+        depthWrite={false}
+        blending={THREE.AdditiveBlending}
+      />
+    </points>
+  );
+}
+
 export default function HeroScene() {
   const [logo, setLogo] = useState<LogoCloud | null>(null);
   const [logoFailed, setLogoFailed] = useState(false);
@@ -409,6 +473,7 @@ export default function HeroScene() {
         <OrbitingSphere angle={3.5} radius={4.5} color="#7B2FFF" size={0.12} />
       </MouseTracker>
 
+      <BackgroundStars intro={introActive} reducedMotion={reducedMotion} />
       <FieldParticles />
       <Sparkles count={80} size={1.8} speed={0.25} color="#FF006E" opacity={0.5} scale={14} />
       <Sparkles count={60} size={1.2} speed={0.15} color="#7B2FFF" opacity={0.4} scale={12} />
