@@ -101,8 +101,10 @@ export default function AppShell({ children }: { children: ReactNode }) {
       showUpgrade((e as CustomEvent).detail as string | undefined);
     };
     const onUnverified = () => {
-      // The banner is already visible whenever the account is unverified —
-      // just bring it into view so the user sees why their action failed.
+      // Belt-and-suspenders: the banner renders off email_verified from
+      // /auth/me, so re-sync first in case client state was stale, then
+      // bring the banner into view so the user sees why the send failed.
+      refreshUser();
       bannerRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     };
     window.addEventListener(QUOTA_EVENT, onQuota);
@@ -111,7 +113,7 @@ export default function AppShell({ children }: { children: ReactNode }) {
       window.removeEventListener(QUOTA_EVENT, onQuota);
       window.removeEventListener(EMAIL_VERIFICATION_EVENT, onUnverified);
     };
-  }, [showUpgrade]);
+  }, [showUpgrade, refreshUser]);
 
   const logout = () => {
     clearToken();
